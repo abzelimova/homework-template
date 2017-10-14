@@ -74,6 +74,7 @@ class ToBuyItem(BaseItem):
         price = input('Input price: ')
         return cls(heading, price)
 
+
 class ToReadItem(BaseItem):
     def __init__(self, heading, url):
         super().__init__(heading)

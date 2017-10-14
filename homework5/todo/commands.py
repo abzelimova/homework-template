@@ -80,6 +80,7 @@ class ExitCommand(BaseCommand):
     def perform(self, _store):
         raise UserExitException('See you next time!')
 
+
 class DoneCommand(BaseCommand):
     @property
     def label(self) -> str:
@@ -114,6 +115,7 @@ class DoneCommand(BaseCommand):
 
         for index, obj in enumerate(store.items):
             print('{}: {}'.format(index, str(obj)))
+
 
 class UndoneCommand(BaseCommand):
     @property
