@@ -42,7 +42,7 @@ def kill_a_person(param):  # Вывод трупика
     print_line(field)
 
 
-def print_line(field):  # рисует правильного трупика
+def print_line(field):  # рисует правильного трупика в консоли
     n = 4
     print('------------------------')
     for i in range(0, len(field), n):
