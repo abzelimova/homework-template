@@ -29,7 +29,7 @@ def kill_a_person(param):  # Вывод трупика
                  '0', ' ', '|', ' ', '|', '', '|', ' ', ' ', '']
     if param == 3:
         field = ['|', '-', '-', ' ', '|', ' ', '|', ' ', '|', ' ',
-                 '0', ' ', '|', '-', '|', ' ','|', ' ', ' ', '']
+                 '0', ' ', '|', '-', '|', ' ', '|', ' ', ' ', '']
     if param == 4:
         field = ['|', '-', '-', ' ', '|', ' ', '|', ' ', '|', ' ',
                  '0', ' ', '|', '-', '|', '-', '|', ' ', ' ', '']
@@ -72,7 +72,8 @@ class LogicOfGame(object):
                 if self.word[i] == self.letter:
                     self.guessed_letters += 1
                     self.change_of_letters = self.change_of_letters[:i] + \
-                                             self.letter + self.change_of_letters[i + 1:]
+                                             self.letter + \
+                                             self.change_of_letters[i + 1:]
                 i += 1
             return True
 
@@ -111,7 +112,8 @@ def main():
     second_victory = 0
     round_count = 1
 
-    choice = input('Введите 1 если хотите играть с человеком,\n\r 2 - с компьютером. Мой выбор: ')
+    choice = input('Введите 1 если хотите играть с человеком,'
+                   '\n\r 2 - с компьютером. Мой выбор: ')
     print(choice)
     if choice == '1':
         while first_victory < 2 and second_victory < 2:
@@ -120,7 +122,7 @@ def main():
                 print('Используйте только английские слова')
                 game_word = input('Введите слово:')
             if start_game(game_word):
-                if  round_count % 2 == 1:
+                if round_count % 2 == 1:
                     first_victory += 1
                 else:
                     second_victory += 1
@@ -136,6 +138,7 @@ def main():
             game_word = random.choice(json.load(fh)['words'])
         if start_game(game_word):
             round_count += 1
+
 
 if __name__ == '__main__':
         try:
