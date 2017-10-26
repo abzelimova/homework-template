@@ -79,3 +79,75 @@ class ExitCommand(BaseCommand):
 
     def perform(self, _store):
         raise UserExitException('See you next time!')
+
+
+class DoneCommand(BaseCommand):
+    @property
+    def label(self) -> str:
+        return 'done'
+
+    def perform(self, store):
+        if len(store.items) == 0:
+            print('There are no items in storage.')
+            return
+
+        for index, obj in enumerate(store.items):
+            print('{}: {}'.format(index, str(obj)))
+
+        selection = None
+
+        while True:
+            try:
+                selection = int(input('Input number: '))
+                selected_key = store.items[selection]
+
+                break
+            except ValueError:
+                print('Bad input, try again.')
+            except IndexError:
+                print('Wrong index, try again.')
+
+        selected_key.done = True
+
+        if len(store.items) == 0:
+            print('There are no items in storage.')
+            return
+
+        for index, obj in enumerate(store.items):
+            print('{}: {}'.format(index, str(obj)))
+
+
+class UndoneCommand(BaseCommand):
+    @property
+    def label(self) -> str:
+        return 'undone'
+
+    def perform(self, store):
+        if len(store.items) == 0:
+            print('There are no items in storage.')
+            return
+
+        for index, obj in enumerate(store.items):
+            print('{}: {}'.format(index, str(obj)))
+
+        selection = None
+
+        while True:
+            try:
+                selection = int(input('Input number: '))
+                selected_key = store.items[selection]
+
+                break
+            except ValueError:
+                print('Bad input, try again.')
+            except IndexError:
+                print('Wrong index, try again.')
+
+        selected_key.done = False
+
+        if len(store.items) == 0:
+            print('There are no items in storage.')
+            return
+
+        for index, obj in enumerate(store.items):
+            print('{}: {}'.format(index, str(obj)))
