@@ -101,12 +101,14 @@ def start_game(game_word):
               'Количество угаданых букв', game.guessed_letters)
         return False
     else:
-        print('Вы выиграли.Количество попыток: ', game.sum_of_letters,
+        print('Количество попыток: ', game.sum_of_letters,
               'Количество угаданых букв', game.guessed_letters)
         return True
 
 
 def main():
+    computer_victiry = 0
+    person_victory = 0
     first_victory = 0
     second_victory = 0
     round_count = 1
@@ -133,10 +135,19 @@ def main():
             print('Победил второй игрок')
 
     if choice == '2':
-        with open('words.json', 'r', encoding='utf-8') as fh:
-            game_word = random.choice(json.load(fh)['words'])
-        if start_game(game_word):
+        while computer_victiry < 2 and person_victory < 2:
+            with open('words.json', 'r', encoding='utf-8') as fh:
+                game_word = random.choice(json.load(fh)['words'])
+            if start_game(game_word):
+                    person_victory += 1
+            else:
+                computer_victiry += 1
             round_count += 1
+            print('Счет: ', computer_victiry, ' : ', person_victory)
+        if computer_victiry == 2:
+            print('Победил компьютер игрок, а Вы проиграли')
+        else:
+            print('Поздравляем, Вы выиграли')
 
 
 if __name__ == '__main__':
