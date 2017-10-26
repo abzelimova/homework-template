@@ -62,7 +62,7 @@ class LogicOfGame(object):
 
     def is_right_letter(self):
         if self.letter not in self.word:
-            print('Такой буквы нет')
+            print('Такой буквы нет.')
             self.param += 1
             kill_a_person(self.param)
             return False
