@@ -127,6 +127,11 @@ def main():
                     first_victory += 1
                 else:
                     second_victory += 1
+            else:
+                if int(round_count) % 2 == 1:
+                    second_victory += 1
+                else:
+                    first_victory += 1
             round_count += 1
             print('Счет: ', first_victory, ' : ', second_victory)
         if first_victory == 2:
