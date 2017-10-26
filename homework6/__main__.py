@@ -47,7 +47,7 @@ def print_line(field):  # рисует правильного трупика в 
     print('------------------------')
     for i in range(0, len(field), n):
         prepared_line = ['{:2s}'.format((x)) for x in field[i:i + n]]
-        print(' %s' % ''.join(prepared_line))
+        print(''.join(prepared_line))
     print('------------------------')
 
 
@@ -72,8 +72,7 @@ class LogicOfGame(object):
                 if self.word[i] == self.letter:
                     self.guessed_letters += 1
                     self.change_of_letters = self.change_of_letters[:i] + \
-                                             self.letter + \
-                                             self.change_of_letters[i + 1:]
+                        self.letter + self.change_of_letters[i + 1:]
                 i += 1
             return True
 
@@ -122,7 +121,7 @@ def main():
                 print('Используйте только английские слова')
                 game_word = input('Введите слово:')
             if start_game(game_word):
-                if round_count % 2 == 1:
+                if int(round_count) % 2 == 1:
                     first_victory += 1
                 else:
                     second_victory += 1
