@@ -2,12 +2,12 @@
 
 ## Name
 
-Nikita Sobolev
+Abzelimova Raisa
 
 
 ## Link
 
-My profile [link](https://codefights.com/profile/sobolevn1/stats).
+My profile [link](https://codefights.com/profile/raisaabzelimova).
 
 
 ## Screenshot
