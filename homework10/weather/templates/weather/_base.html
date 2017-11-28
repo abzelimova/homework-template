@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example page</title>
+
+    <link rel="stylesheet" href="{% static 'weather/tacit-css.min.css' %}">
+</head>
+<body>
+{{ name }}
+    <img src="{% static 'weather/images/1.jpg' %}"/>
+    {% block content %}{% endblock %}
+
+    {% include 'weather/_footer.html' %}
+
+</body>
+</html>

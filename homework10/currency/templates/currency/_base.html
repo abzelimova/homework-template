@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example page</title>
+
+    <link rel="stylesheet" href="{% static 'currency/tacit-css.min.css' %}">
+</head>
+<body>
+{{ rub_usd }}
+{% block content %}
+{% endblock %}
+{% include 'currency/_footer.html' %}
+
+</body>
+</html>
